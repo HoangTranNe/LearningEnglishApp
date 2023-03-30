@@ -6,20 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@color/aqua">
+    android:background="@color/lavender_blue">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="10dp"
-            app:srcCompat="@drawable/user" />
 
         <SearchView
             android:layout_width="310dp"
@@ -35,85 +27,86 @@
             android:padding="10dp"
             app:srcCompat="@drawable/setting" />
 
+        <ImageButton
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            app:srcCompat="@drawable/user" />
+
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="608dp">
+        android:layout_height="607dp">
+
 
         <Button
             android:id="@+id/button3"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.094" />
+            android:layout_above="@+id/button4"
+            android:layout_marginStart="-50dp"
+            android:layout_marginEnd="-50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_toStartOf="@+id/button4"
+            android:layout_toEndOf="@+id/button2"
+            android:text="Button" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.061"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.32" />
+            android:layout_above="@+id/button5"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="50dp"
+            android:text="Button" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.938"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.32" />
+            android:layout_above="@+id/button5"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:text="Button" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.061"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.777" />
+            android:layout_above="@+id/button7"
+            android:layout_marginStart="-50dp"
+            android:layout_marginEnd="-50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_toStartOf="@+id/button6"
+            android:layout_toEndOf="@+id/button7"
+            android:text="Button" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:text="Button" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="150dp"
             android:layout_height="100dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.938"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.777" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="50dp"
+            android:text="Button" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
