@@ -82,7 +82,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/green_teal">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -155,46 +157,41 @@
 
     </Space>
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/green_teal"
+        android:layout_gravity="center">
 
-        <Space
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:id="@+id/imageButton24"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            app:srcCompat="@drawable/home"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"/>
 
         <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/home" />
-
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/menu"/>
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/mail" />
-
-        <ImageButton
-            android:id="@+id/imageButton6"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/user" />
-
-        <Space
-            android:layout_width="wrap_content"
+            android:id="@+id/imageButton25"
+            android:layout_marginLeft="20dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            app:srcCompat="@drawable/menu"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"/>
+
+        <ImageButton
+            android:id="@+id/imageButton28"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/setting"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"/>
     </LinearLayout>
 
 </LinearLayout>

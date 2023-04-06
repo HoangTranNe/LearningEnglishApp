@@ -16,15 +16,24 @@
             android:id="@+id/imageButton15"
             android:layout_width="60dp"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/medium_slate_blue"
+            android:background="@drawable/border"
             app:srcCompat="@drawable/back" />
 
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
         <ImageButton
             android:id="@+id/imageButton17"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/black"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             app:srcCompat="@drawable/ic_launcher_foreground" />
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
 
         <TextView
             android:id="@+id/textView5"
@@ -33,14 +42,15 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Customer Service"
-            android:background="@color/black"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             android:textColor="@color/white" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="583dp" />
+        android:layout_height="568dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,20 +62,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             app:srcCompat="@drawable/more" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
 
         <ImageButton
             android:id="@+id/imageButton12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             app:srcCompat="@drawable/camera" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
 
         <ImageButton
             android:id="@+id/imageButton13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             app:srcCompat="@drawable/image" />
 
         <EditText
@@ -74,49 +98,60 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="type new chat"
+            android:inputType="textPersonName" />
 
         <ImageButton
             android:id="@+id/imageButton14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             app:srcCompat="@drawable/send" />
     </LinearLayout>
 
-    <LinearLayout
+    <Space
         android:layout_width="match_parent"
+        android:layout_height="10dp">
+
+    </Space>
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/green_teal"
+        android:layout_gravity="center">
 
         <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageButton24"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/home" />
+            app:srcCompat="@drawable/home"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"/>
 
         <ImageButton
-            android:id="@+id/imageButton8"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageButton25"
+            android:layout_marginLeft="20dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/mail" />
+            app:srcCompat="@drawable/menu"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"/>
 
         <ImageButton
-            android:id="@+id/imageButton9"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageButton28"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/menu" />
-
-        <ImageButton
-            android:id="@+id/imageButton10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/user" />
+            app:srcCompat="@drawable/setting"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"/>
     </LinearLayout>
 
 

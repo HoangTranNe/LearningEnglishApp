@@ -24,8 +24,23 @@
             android:background="@drawable/border"/>
 
         <Space
-            android:layout_width="260dp"
+            android:layout_width="20dp"
             android:layout_height="match_parent">
+        </Space>
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="GBD Learn English"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"/>
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent">
+
         </Space>
         <ImageButton
             android:id="@+id/imageButton23"
