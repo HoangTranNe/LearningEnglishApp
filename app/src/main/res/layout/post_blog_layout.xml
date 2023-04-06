@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#CC66FF">
+    android:background="#AFEEEE">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -23,10 +23,16 @@
             android:id="@+id/tittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_view"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             android:padding="20dp"
             android:text="GBD Learn English" />
     </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+    </Space>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +46,8 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             android:text="Tạo Blog" />
     </LinearLayout>
 
@@ -50,7 +58,7 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
@@ -61,15 +69,20 @@
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
             android:layout_weight="1"
             android:text="Tìm Kiếm" />
 
     </LinearLayout>
-
-    <LinearLayout
+    <Space
         android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -78,51 +91,72 @@
 
             <RadioButton
                 android:id="@+id/radioButton"
-                android:layout_width="147dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Daily Vocabulary" />
+                android:text="Daily Vocabulary"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"/>
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent">
+            </Space>
 
             <RadioButton
                 android:id="@+id/radioButton2"
-                android:layout_width="96dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="General" />
+                android:text="General"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"/>
         </LinearLayout>
-
-        <LinearLayout
+        <Space
             android:layout_width="match_parent"
+            android:layout_height="20dp">
+        </Space>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Common Mistake" />
+                android:text="Common Mistake"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"/>
+            <Space
+                android:layout_width="17dp"
+                android:layout_height="match_parent">
+            </Space>
 
             <RadioButton
                 android:id="@+id/radioButton4"
-                android:layout_width="89dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="But" />
-        </LinearLayout>
+                android:text="But"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"/>
+        </RadioGroup>
 
     </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="381dp">
+        android:layout_height="330dp">
 
     </ListView>
-
     <Space
         android:layout_width="match_parent"
-        android:layout_height="36dp" />
+        android:layout_height="30dp">
 
+    </Space>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <Space
             android:layout_width="wrap_content"
@@ -132,28 +166,28 @@
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/home" />
 
         <ImageButton
             android:id="@+id/imageButton5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/menu"/>
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/mail" />
 
         <ImageButton
             android:id="@+id/imageButton6"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/user" />
 
