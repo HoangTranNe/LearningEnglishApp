@@ -1,5 +1,5 @@
 package edu.huflit.learningenglishapp;
-/* Bảng tạo để quản lý tài khoản, role user để phân biệt admin và user */
+
 public class User {
     private long _IDUser;
     private String _username, _password,_gender, _roleuser,_level;
