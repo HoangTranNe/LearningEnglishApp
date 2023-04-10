@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 
 public class Mydatabase {
     SQLiteDatabase database;
@@ -74,4 +75,28 @@ public class Mydatabase {
                 DBHelper.COT_IDUSER + " = " + user.get_IDUser(), null);
     }
 
+    public long them(Exam exam){
+        String sql = "INSERT INTO Exam (_IDQuestion, _IDTest) VALUES (?, ?)";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.bindLong(1, exam.get_Idquestion());
+        statement.bindLong(2, exam.get_IDTest());
+        statement.executeInsert();
+        return statement.executeInsert();
+    }
+    public long sua(Exam exam){
+        String sql = "UPDATE Exam SET _IDQuestion = ?, _IDTest = ? WHERE COT_IDQUESTION = ?";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.bindLong(1, exam.get_Idquestion());
+        statement.bindLong(2, exam.get_IDTest());
+        statement.bindLong(3, exam.get_Idquestion());
+        statement.executeUpdateDelete();
+        return statement.executeUpdateDelete();
+    }
+    public long xoa(Exam exam){
+        String sql = "DELETE FROM Exam WHERE COT_IDQUESTION = ?";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.bindLong(1, exam.get_Idquestion());
+        statement.executeUpdateDelete();
+        return statement.executeUpdateDelete();
+    }
 }
