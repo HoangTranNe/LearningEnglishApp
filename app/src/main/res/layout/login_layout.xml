@@ -2,87 +2,86 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AFEEEE"
+    android:background="@color/green_teal"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/TwTitle"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:background="@color/medium_slate_blue"
-        android:gravity="center"
-        android:text="GBD Learn English"
-        android:textColor="@color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:gravity="center"
+        android:layout_marginTop="180dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
+            android:layout_gravity="center"
+            android:text="Tên Đăng nhập"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
 
-            <Space
-                android:layout_width="30dp"
-                android:layout_height="match_parent">
-            </Space>
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:text="Tên Đăng nhập" />
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="match_parent">
-            </Space>
-            <EditText
-                android:id="@+id/editTextTextPersonName"
-                android:layout_width="255dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="" />
-        </LinearLayout>
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp">
         </Space>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
-            <Space
-                android:layout_width="30dp"
-                android:layout_height="match_parent">
-            </Space>
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="255dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/lavender_blue"
+                android:ems="10"
+                android:hint="NHẬP TÊN ĐĂNG NHẬP"
+                android:inputType="textPersonName"
+                android:text="" />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="100dp"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:text="Mật khẩu" />
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="match_parent">
-            </Space>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+        </Space>
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Mật khẩu"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+        </Space>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/editTextTextPersonName2"
-                android:layout_width="256dp"
-                android:layout_height="wrap_content"
+                android:layout_width="255dp"
+                android:layout_height="50dp"
                 android:background="@drawable/border"
+                android:backgroundTint="@color/lavender_blue"
                 android:ems="10"
+                android:hint="NHẬP MẬT KHẨU"
                 android:inputType="textPersonName"
                 android:text="" />
         </LinearLayout>
