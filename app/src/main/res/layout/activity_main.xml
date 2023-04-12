@@ -15,7 +15,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/backBTN"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/back"
@@ -28,7 +28,7 @@
             android:layout_height="match_parent">
         </Space>
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/tittleApp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -43,7 +43,7 @@
 
         </Space>
         <ImageButton
-            android:id="@+id/imageButton23"
+            android:id="@+id/user"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/user"
@@ -73,7 +73,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/iconLibrary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -84,7 +84,7 @@
 
             </Space>
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/tittleLibrary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -99,7 +99,7 @@
             </Space>
 
             <ImageButton
-                android:id="@+id/imageButton26"
+                android:id="@+id/historyBTN"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:contentDescription="@android:string/selectTextMode"
@@ -112,11 +112,11 @@
                 android:layout_height="match_parent" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/tittleLibrary1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="15dp"
+                android:textSize="16dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="Lịch Sử" />
@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content" />
 
             <ImageButton
-                android:id="@+id/imageButton27"
+                android:id="@+id/reviewBTN"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:contentDescription="@android:string/selectTextMode"
@@ -138,12 +138,12 @@
                 android:layout_width="10dp"
                 android:layout_height="wrap_content" />
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/tittleLibrary2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/black"
-                android:textSize="15dp"
+                android:textSize="16dp"
                 android:gravity="center"
                 android:text="Ôn Tập" />
         </TableRow>
@@ -167,7 +167,7 @@
             android:backgroundTint="#7FFFD4">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/iconTest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -175,7 +175,7 @@
                 app:srcCompat="@drawable/file" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/tittleTest"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -184,7 +184,7 @@
                 android:textColor="@color/black"/>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/doTestBTN"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:backgroundTint="@color/medium_slate_blue"
@@ -211,7 +211,7 @@
             android:backgroundTint="@color/green_teal">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/tittleBlog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -221,22 +221,23 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/inpBlog"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:layout_gravity="center"
+                android:hint="nhập nội dung bài blog"
                 android:gravity="center" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/postBlog"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:background="@color/medium_slate_blue"
+                android:backgroundTint="@color/medium_slate_blue"
                 android:text="Đăng" />
         </LinearLayout>
         <Space
@@ -246,6 +247,7 @@
         </Space>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/showBlog"
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:layout_weight="1"
@@ -256,7 +258,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="50dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -267,33 +269,35 @@
         android:layout_gravity="center">
 
         <ImageButton
-            android:id="@+id/imageButton24"
+            android:id="@+id/homeBTN"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/home"
             android:background="@drawable/border"
-            android:backgroundTint="@color/medium_slate_blue"/>
+            android:backgroundTint="@color/medium_slate_blue"
+            android:contentDescription="Đây là nút quay lại giao diện chính"/>
 
         <ImageButton
-            android:id="@+id/imageButton25"
+            android:id="@+id/listBTN"
             android:layout_marginLeft="20dp"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/menu"
             android:background="@drawable/border"
-            android:backgroundTint="@color/medium_slate_blue"/>
+            android:backgroundTint="@color/medium_slate_blue"
+            android:contentDescription="đây là nút hiển thị danh mục"/>
 
         <ImageButton
-            android:id="@+id/imageButton28"
+            android:id="@+id/settingBTN"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="50dp"
             app:srcCompat="@drawable/setting"
             android:layout_marginLeft="20dp"
             android:background="@drawable/border"
-            android:backgroundTint="@color/medium_slate_blue"/>
+            android:backgroundTint="@color/medium_slate_blue"
+            android:contentDescription="Đây là cài đặt"/>
     </LinearLayout>
 
 

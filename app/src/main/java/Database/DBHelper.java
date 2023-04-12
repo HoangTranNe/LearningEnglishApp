@@ -1,4 +1,4 @@
-package edu.huflit.learningenglishapp;
+package Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

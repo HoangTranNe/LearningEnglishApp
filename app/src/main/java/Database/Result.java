@@ -1,4 +1,4 @@
-package edu.huflit.learningenglishapp;
+package Database;
 
 public class Result {
     private long _IDUser,_IDExam;

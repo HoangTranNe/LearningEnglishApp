@@ -1,4 +1,4 @@
-package edu.huflit.learningenglishapp;
+package Database;
 
 public class Question {
     private long _Idquestion;

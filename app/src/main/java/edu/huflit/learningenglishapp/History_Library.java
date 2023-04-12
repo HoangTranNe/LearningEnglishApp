@@ -1,4 +1,4 @@
 package edu.huflit.learningenglishapp;
 
-public class User {
+public class History_Library {
 }
