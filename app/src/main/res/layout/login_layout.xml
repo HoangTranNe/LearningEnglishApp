@@ -76,7 +76,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/inpPassword"
+                android:id="@+id/EdtPass"
                 android:layout_width="255dp"
                 android:layout_height="50dp"
                 android:background="@drawable/border"

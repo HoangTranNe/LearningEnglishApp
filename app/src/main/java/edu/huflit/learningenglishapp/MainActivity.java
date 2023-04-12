@@ -4,11 +4,10 @@ package edu.huflit.learningenglishapp;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import Database.User;
+import edu.huflit.learningenglishapp.account.Login;
 
 
 public class MainActivity extends AppCompatActivity{
