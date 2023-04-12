@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_teal"
@@ -12,20 +13,20 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/TwLogin"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@drawable/border"
             android:backgroundTint="@color/medium_slate_blue"
-            android:layout_gravity="center"
             android:text="Tên Đăng nhập"
             android:textColor="@color/black"
             android:textSize="15dp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp">
-        </Space>
+            android:layout_height="20dp"></Space>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +34,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/EdtName"
                 android:layout_width="255dp"
                 android:layout_height="50dp"
                 android:background="@drawable/border"
@@ -46,17 +47,16 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp">
-        </Space>
+            android:layout_height="20dp"></Space>
 
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/TwPass"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@drawable/border"
             android:backgroundTint="@color/medium_slate_blue"
-            android:layout_gravity="center"
             android:gravity="center"
             android:text="Mật khẩu"
             android:textColor="@color/black"
@@ -64,8 +64,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp">
-        </Space>
+            android:layout_height="20dp"></Space>
 
 
         <LinearLayout
@@ -75,7 +74,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/EdtPass"
                 android:layout_width="255dp"
                 android:layout_height="50dp"
                 android:background="@drawable/border"
@@ -88,8 +87,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp">
-        </Space>
+            android:layout_height="20dp"></Space>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,11 +96,11 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/BttLogin"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/medium_slate_blue"
                 android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"
                 android:text="Đăng Nhập" />
 
             <Space
@@ -110,14 +108,22 @@
                 android:layout_height="10dp" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/BttResig"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/medium_slate_blue"
                 android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"
                 android:text="Đăng Kí" />
 
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/TwResult"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        />
 
 </LinearLayout>
