@@ -1,4 +1,4 @@
-package edu.huflit.learningenglishapp.account;
+package com.example.learningenglishapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,15 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import Database.DBHelper;
-import edu.huflit.learningenglishapp.R;
-import edu.huflit.learningenglishapp.account.Register;
-import edu.huflit.learningenglishapp.main_layout.User;
 
 public class Login extends AppCompatActivity {
 
@@ -29,7 +20,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_layout);
+        setContentView(R.layout.login);
         medtname = findViewById(R.id.EdtName);
         medtpass = findViewById(R.id.EdtPass);
         bttlogin = findViewById(R.id.BttLogin);
@@ -62,9 +53,27 @@ public class Login extends AppCompatActivity {
                 // Close cursor
                 cursor.close();
 
+                String[] projection2 = { "_roleuser" };
+                String selection2 = "username = ?";
+                String[] selectionArgs2 = { username, password  };
+                Cursor cursor2 = db.query("Learningenglishapp", projection2, selection2, selectionArgs2, null, null, null);
+
+
+
+                // Retrieve value of _roleuser column for currently logged-in user
+                int columnIndex = cursor2.getColumnIndex("_roleuser");
+                if (columnIndex < 0) {
+                    // Column not found, handle error
+                    return;
+                }
+                String roleUser = cursor2.getString(columnIndex);
+
                 // If username and password match, move to User activity
-                if (result) {
-                    Intent intent = new Intent(Login.this, User.class);
+                if (result && roleUser=="User") {
+                    Intent intent = new Intent(Login.this, UserMain.class);
+                    startActivity(intent);
+                } else if (result && roleUser == "Admin") {
+                    Intent intent = new Intent(Login.this, admin_main.class);
                     startActivity(intent);
                 } else {
                     // Username and password do not match, display error message
@@ -76,7 +85,7 @@ public class Login extends AppCompatActivity {
             }
         });
         bttresigter.setOnClickListener(view -> {
-            startActivity(new Intent(Login.this, Register.class));
+            startActivity(new Intent(Login.this, resigster.class));
         });
     }
 }
