@@ -1,90 +1,77 @@
-package edu.huflit.learningenglishapp.account;
+package com.example.learningenglishapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import java.sql.Connection;
-
-import edu.huflit.learningenglishapp.R;
-import edu.huflit.learningenglishapp.main_layout.User;
-
 public class Login extends AppCompatActivity {
 
+    TextView mtwResult;
     EditText medtname, medtpass;
     Button bttlogin, bttresigter;
+    private DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_layout);
+        setContentView(R.layout.activity_login);
         medtname = findViewById(R.id.EdtName);
         medtpass = findViewById(R.id.EdtPass);
         bttlogin = findViewById(R.id.BttLogin);
         bttresigter = findViewById(R.id.BttResig);
+        mtwResult = findViewById(R.id.TwResult);
+
+        dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Create the table if it doesn't exist
+        String sql = "CREATE TABLE IF NOT EXISTS Learningenglishapp (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)";
+        db.execSQL(sql);
         // khai báo các button text view và button
 
-        bttlogin.setOnClickListener(view -> {
-            // Retrieve username and password from EditText fields
-            String username = medtname.getText().toString();
-            String password = medtname.getText().toString();
+        bttlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = medtname.getText().toString();
+                String password = medtpass.getText().toString();
 
-            // Check if username and password are valid
-            boolean isValid = validateUser(username, password);
+                // Check if username and password match a record in the database
+                String[] projection = { "id" };
+                String selection = "username = ? AND password = ?";
+                String[] selectionArgs = { username, password };
+                Cursor cursor = db.query("Learningenglishapp", projection, selection, selectionArgs, null, null, null);
 
-            // Display appropriate message and start User activity if valid
-            if (isValid) {
-                Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Login.this, User.class));
-            } else {
-                Toast.makeText(Login.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                // Move cursor to first row
+                boolean result = cursor.moveToFirst();
+
+                // Close cursor
+                cursor.close();
+
+                // If username and password match, move to User activity
+                if (result) {
+                    Intent intent = new Intent(Login.this, UserMain.class);
+                    startActivity(intent);
+                } else {
+                    // Username and password do not match, display error message
+                    mtwResult.setText("Incorrect username or password");
+                }
+
+                cursor.close();
+                db.close();
             }
         });
         bttresigter.setOnClickListener(view -> {
-            startActivity(new Intent(Login.this, Register.class));
+            startActivity(new Intent(Login.this, resigster.class));
         });
-    }
-
-    private boolean validateUser(String username, String password) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        boolean isValid = false;
-        try {
-            // Establish connection to database
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/Learningenglishapp", "myuser", "mypassword");
-
-            // Prepare SQL statement with parameterized query
-            String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-
-            // Execute query and retrieve result set
-            rs = stmt.executeQuery();
-
-            // Check if result set contains any rows
-            isValid = rs.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            // Close resources
-            try {
-                if (rs != null) rs.close();
-                if (stmt != null) stmt.close();
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return isValid;
     }
 }
