@@ -1,11 +1,12 @@
-package com.example.learningenglishapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package edu.huflit.learningenglishapp.main_layout;
 
 import android.os.Bundle;
 
-public class UserMain extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+import edu.huflit.learningenglishapp.R;
+
+public class User extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

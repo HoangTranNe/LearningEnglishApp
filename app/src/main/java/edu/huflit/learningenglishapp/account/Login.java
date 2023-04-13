@@ -1,4 +1,4 @@
-package com.example.learningenglishapp;
+package edu.huflit.learningenglishapp.account;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,9 @@ import java.sql.SQLException;
 
 import java.sql.Connection;
 
+import edu.huflit.learningenglishapp.R;
+import edu.huflit.learningenglishapp.main_layout.User;
+
 public class Login extends AppCompatActivity {
 
     EditText medtname, medtpass;
@@ -22,7 +25,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_layout);
         medtname = findViewById(R.id.EdtName);
         medtpass = findViewById(R.id.EdtPass);
         bttlogin = findViewById(R.id.BttLogin);
@@ -40,13 +43,13 @@ public class Login extends AppCompatActivity {
             // Display appropriate message and start User activity if valid
             if (isValid) {
                 Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Login.this, UserMain.class));
+                startActivity(new Intent(Login.this, User.class));
             } else {
                 Toast.makeText(Login.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
             }
         });
         bttresigter.setOnClickListener(view -> {
-            startActivity(new Intent(Login.this, resigster.class));
+            startActivity(new Intent(Login.this, Register.class));
         });
     }
 
