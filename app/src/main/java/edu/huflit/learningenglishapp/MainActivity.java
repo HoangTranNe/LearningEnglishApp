@@ -4,19 +4,16 @@ package edu.huflit.learningenglishapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import Database.User;
-import edu.huflit.learningenglishapp.account.Login;
+import edu.huflit.learningenglishapp.account.*;
 import edu.huflit.learningenglishapp.main_layout.Blog;
 import edu.huflit.learningenglishapp.main_layout.History_Library;
 import edu.huflit.learningenglishapp.main_layout.Review;
@@ -44,7 +41,7 @@ public class MainActivity extends AppCompatActivity{
         review  = (ImageButton) findViewById(R.id.reviewBTN);
 
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Login.class);
+            Intent intent = new Intent(MainActivity.this, com.example.learningenglishapp.Login.class);
             startActivity(intent);
             finish();
         });

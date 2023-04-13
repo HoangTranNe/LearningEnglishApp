@@ -15,6 +15,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Database.DBHelper;
+import edu.huflit.learningenglishapp.R;
+import edu.huflit.learningenglishapp.account.Register;
+import edu.huflit.learningenglishapp.main_layout.User;
+
 public class Login extends AppCompatActivity {
 
     TextView mtwResult;
@@ -24,7 +29,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_layout);
         medtname = findViewById(R.id.EdtName);
         medtpass = findViewById(R.id.EdtPass);
         bttlogin = findViewById(R.id.BttLogin);
@@ -59,7 +64,7 @@ public class Login extends AppCompatActivity {
 
                 // If username and password match, move to User activity
                 if (result) {
-                    Intent intent = new Intent(Login.this, UserMain.class);
+                    Intent intent = new Intent(Login.this, User.class);
                     startActivity(intent);
                 } else {
                     // Username and password do not match, display error message
@@ -71,7 +76,7 @@ public class Login extends AppCompatActivity {
             }
         });
         bttresigter.setOnClickListener(view -> {
-            startActivity(new Intent(Login.this, resigster.class));
+            startActivity(new Intent(Login.this, Register.class));
         });
     }
 }

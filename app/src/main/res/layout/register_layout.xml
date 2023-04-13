@@ -161,25 +161,31 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/medium_slate_blue"
-                android:text="Nam" />
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="match_parent">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
-            </Space>
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:backgroundTint="@color/medium_slate_blue"
-                android:text="Nữ" />
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:backgroundTint="@color/medium_slate_blue"
+                    android:text="Nam" />
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent">
+                </Space>
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:backgroundTint="@color/medium_slate_blue"
+                    android:text="Nữ" />
+            </RadioGroup>
+
         </LinearLayout>
 
 

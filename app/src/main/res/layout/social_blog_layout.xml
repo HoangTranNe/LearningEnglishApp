@@ -39,6 +39,7 @@
             android:background="@drawable/border"
             android:backgroundTint="@color/medium_slate_blue"
             android:layout_weight="1"
+            android:contentDescription="library"
             app:srcCompat="@drawable/bookmarks" />
     </LinearLayout>
 
@@ -95,6 +96,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/border"
                     android:backgroundTint="@color/medium_slate_blue"
+                    android:contentDescription="next"
                     app:srcCompat="@drawable/next">
                 </ImageButton>
             </LinearLayout>
