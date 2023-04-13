@@ -1,4 +1,4 @@
-package com.example.learningenglishapp;
+package edu.huflit.learningenglishapp.account;
 
 import androidx.appcompat.app.AppCompatActivity;
 

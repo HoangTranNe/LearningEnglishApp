@@ -39,9 +39,18 @@ public class MainActivity extends AppCompatActivity{
         user = (ImageButton) findViewById(R.id.user);
         history = (ImageButton) findViewById(R.id.historyBTN);
         review  = (ImageButton) findViewById(R.id.reviewBTN);
+        inpBlog = findViewById(R.id.inpBlog);
+        postBlog = findViewById(R.id.postBlog);
+        showBlog = findViewById(R.id.showBlog);
+
+
+        blogAdapter = new Blog.BlogAdapter(blogList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        showBlog.setLayoutManager(layoutManager);
+        showBlog.setAdapter(blogAdapter);
 
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.example.learningenglishapp.Login.class);
+            Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
             finish();
         });
@@ -61,15 +70,6 @@ public class MainActivity extends AppCompatActivity{
             startActivity(intent);
             finish();
         });
-
-        inpBlog = findViewById(R.id.inpBlog);
-        postBlog = findViewById(R.id.postBlog);
-        showBlog = findViewById(R.id.showBlog);
-
-        blogAdapter = new Blog.BlogAdapter(blogList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        showBlog.setLayoutManager(layoutManager);
-        showBlog.setAdapter(blogAdapter);
 
         postBlog.setOnClickListener(new View.OnClickListener() {
             @Override

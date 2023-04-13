@@ -260,46 +260,14 @@
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/border"
-        android:backgroundTint="@color/green_teal"
-        android:layout_gravity="center">
-
-        <ImageButton
-            android:id="@+id/homeBTN"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/home"
-            android:background="@drawable/border"
-            android:backgroundTint="@color/medium_slate_blue"
-            android:contentDescription="Đây là nút quay lại giao diện chính"/>
-
-        <ImageButton
-            android:id="@+id/listBTN"
-            android:layout_marginLeft="20dp"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/menu"
-            android:background="@drawable/border"
-            android:backgroundTint="@color/medium_slate_blue"
-            android:contentDescription="đây là nút hiển thị danh mục"/>
-
-        <ImageButton
-            android:id="@+id/settingBTN"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/setting"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/border"
-            android:backgroundTint="@color/medium_slate_blue"
-            android:contentDescription="Đây là cài đặt"/>
-    </LinearLayout>
-
-
+        app:backgroundTint="@color/green_teal"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu"  />
 </LinearLayout>
 
