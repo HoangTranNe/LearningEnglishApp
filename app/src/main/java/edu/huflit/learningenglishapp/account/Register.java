@@ -97,6 +97,8 @@ public class resigster extends AppCompatActivity {
 
                 // chuyển trang khi thanh công
                 Toast.makeText(resigster.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(resigster.this,Login.class);
+                startActivity(intent);
             }
         });
     }
