@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Learning_English</string>
+    <string name="home">Home</string>
+    <string name="menu">Menu</string>
+    <string name="setting">Setting</string>
+    <string name="gbn_learn_english">GBN Learn English</string>
+    <string name="quản_lí_thông_tin">QUẢN LÍ THÔNG TIN</string>
+    <string name="người_dùng">NGƯỜI DÙNG</string>
+    <string name="quản_lí_blog">QUẢN LÍ BLOG</string>
+    <string name="tiếp_nhận_khiếu_nại">TIẾP NHẬN KHIẾU NẠI</string>
+</resources>

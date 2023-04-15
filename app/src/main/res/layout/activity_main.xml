@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#AFEEEE"
+    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backBTN"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/back"
+                android:contentDescription="@android:string/cancel"
+                android:backgroundTint="@color/medium_slate_blue"
+                android:background="@drawable/border"/>
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent">
+            </Space>
+            <TextView
+                android:id="@+id/tittleApp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="GBD Learn English"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"/>
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent">
+
+            </Space>
+            <ImageButton
+                android:id="@+id/user"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/user"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"
+                android:contentDescription="@android:string/unknownName"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp">
+
+        </Space>
+
+
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:background="@drawable/border">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:backgroundTint="#7FFFD4">
+
+
+                <ImageView
+                    android:id="@+id/iconLibrary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/tittle" />
+                <Space
+                    android:layout_height="match_parent"
+                    android:layout_width="10dp">
+
+                </Space>
+                <TextView
+                    android:id="@+id/tittleLibrary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="Thư Viện"
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
+
+                <Space
+                    android:layout_height="match_parent"
+                    android:layout_width="10dp">
+                </Space>
+
+                <ImageButton
+                    android:id="@+id/historyBTN"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@android:string/selectTextMode"
+                    app:srcCompat="@drawable/bookmarks"
+                    android:background="@drawable/border"
+                    android:backgroundTint="@color/medium_slate_blue"/>
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tittleLibrary1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="Lịch Sử" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content" />
+
+                <ImageButton
+                    android:id="@+id/reviewBTN"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@android:string/selectTextMode"
+                    app:srcCompat="@drawable/bookmarks"
+                    android:background="@drawable/border"
+                    android:backgroundTint="@color/medium_slate_blue"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tittleLibrary2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:text="Ôn Tập" />
+            </TableRow>
+        </TableLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/border">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/border"
+                android:backgroundTint="#7FFFD4">
+
+                <ImageView
+                    android:id="@+id/iconTest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/file" />
+
+                <TextView
+                    android:id="@+id/tittleTest"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="Bài Thi"
+                    android:textColor="@color/black"/>
+
+                <Button
+                    android:id="@+id/doTestBTN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/medium_slate_blue"
+                    android:text="Làm Bải" />
+            </LinearLayout>
+        </ScrollView>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+        </Space>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="281dp"
+            android:background="@drawable/border">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="94dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/green_teal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tittleBlog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="320dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Blog"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/inpBlog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="83dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="106dp"
+                    android:layout_marginBottom="1dp"
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:hint="nhập nội dung bài blog"
+                    android:textStyle="normal"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/postBlog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="78dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="283dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/medium_slate_blue"
+                    android:text="Đăng" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="389dp"
+                android:layout_height="152dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="108dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="11dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/green_teal" />
+
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            app:backgroundTint="@color/green_teal"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/menu"  />
+
+    </LinearLayout>

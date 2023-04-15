@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:background="#AFEEEE"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="91dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="175dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="175dp"
+        android:layout_marginBottom="577dp"
+        app:srcCompat="@drawable/user" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TwLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
+            android:text="Tên Đăng nhập"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/EdtName"
+                android:layout_width="255dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/lavender_blue"
+                android:ems="10"
+                android:hint="NHẬP TÊN ĐĂNG NHẬP"
+                android:gravity="center"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:text="" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+        <TextView
+            android:id="@+id/TwPass"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/medium_slate_blue"
+            android:gravity="center"
+            android:text="Mật khẩu"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/EdtPass"
+                android:layout_width="255dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/lavender_blue"
+                android:ems="10"
+                android:hint="NHẬP MẬT KHẨU"
+                android:gravity="center"
+                android:textSize="16dp"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:autofillHints="" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/BttLogin"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:textSize="16dp"
+                android:backgroundTint="@color/medium_slate_blue"
+                android:text="Đăng Nhập" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
+
+            <Button
+                android:id="@+id/BttResig"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/medium_slate_blue"
+                android:gravity="center"
+                android:text="Đăng Kí"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TwResult"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="494dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="218dp"
+        android:text="TextView"
+        android:textColor="@color/black" />
+
+</RelativeLayout>
