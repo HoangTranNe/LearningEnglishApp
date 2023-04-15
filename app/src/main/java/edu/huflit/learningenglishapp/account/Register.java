@@ -1,10 +1,13 @@
 package com.example.learningenglishapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +16,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class resigster extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText confirmPasswordEditText;
-    private EditText AgeEditText;
-    private RadioGroup mGenderGroup;
+    private EditText ageEditText;
+    private RadioGroup genderGroup;
     private RadioButton maleRadioButton;
     private RadioButton femaleRadioButton;
     private TextView resultTextView;
@@ -29,13 +32,13 @@ public class resigster extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.resigster);
+        setContentView(R.layout.activity_register);
 
         usernameEditText = findViewById(R.id.EdtName);
         passwordEditText = findViewById(R.id.EdtPass);
         confirmPasswordEditText = findViewById(R.id.EdtRepass);
-        AgeEditText = findViewById(R.id.EdtAge);
-        mGenderGroup = findViewById(R.id.GenderGroup);
+        ageEditText = findViewById(R.id.EdtAge);
+        genderGroup = findViewById(R.id.GenderGroup);
         maleRadioButton = findViewById(R.id.BttNam);
         femaleRadioButton = findViewById(R.id.BttNu);
         resultTextView = findViewById(R.id.TwFinish);
@@ -46,7 +49,7 @@ public class resigster extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         // Create the table if it doesn't exist
-        String sql = "CREATE TABLE IF NOT EXISTS Learningenglishapp (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, phoneNumber TEXT, gender TEXT)";
+        String sql = "CREATE TABLE IF NOT EXISTS Learningenglishapp (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, age INTEGER, gender TEXT, roleuser TEXT)";
         db.execSQL(sql);
 
         // Set onClickListener for register button
@@ -56,9 +59,10 @@ public class resigster extends AppCompatActivity {
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
                 String confirmPassword = confirmPasswordEditText.getText().toString();
-                int Age = Integer.parseInt(AgeEditText.getText().toString());
+                String ageString = ageEditText.getText().toString();
+                int age = TextUtils.isEmpty(ageString) ? 0 : Integer.parseInt(ageString);
                 String gender = "";
-                int genderId = mGenderGroup.getCheckedRadioButtonId();
+                int genderId = genderGroup.getCheckedRadioButtonId();
                 if (genderId == R.id.BttNam) {
                     gender = "Nam";
                 } else if (genderId == R.id.BttNu) {
@@ -71,11 +75,8 @@ public class resigster extends AppCompatActivity {
                 String[] selectionArgs = { username };
                 Cursor cursor = db.query("Learningenglishapp", projection, selection, selectionArgs, null, null, null);
 
-                // Move cursor to first row
-                boolean result = cursor.moveToFirst();
-
                 // If username already exists, display error message and return
-                if (result) {
+                if (cursor.moveToFirst()) {
                     resultTextView.setText("Username already exists");
                     return;
                 }
@@ -88,24 +89,16 @@ public class resigster extends AppCompatActivity {
 
                 // Add user information to database
                 ContentValues values = new ContentValues();
-                values.put("_username", username);
-                values.put("_password", password);
-                values.put("_age", Age);
-                values.put("_gender", gender);
-                values.put("_roleuser", "User");
+                values.put("username", username);
+                values.put("password", password);
+                values.put("age", age);
+                values.put("gender", gender);
+                values.put("roleuser", "User");
                 db.insert("Learningenglishapp", null, values);
 
                 // chuyển trang khi thanh công
-                Toast.makeText(resigster.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(resigster.this,Login.class);
+                Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
-        });
-    }
-
-    @Override
-    protected void onDestroy() {
-        dbHelper.close();
-        super.onDestroy();
-    }
-}
