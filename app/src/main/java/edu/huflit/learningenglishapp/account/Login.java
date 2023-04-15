@@ -15,25 +15,26 @@ public class Login extends AppCompatActivity {
 
     TextView mtwResult;
     EditText medtname, medtpass;
-    Button bttlogin, bttresigter;
+    Button bttlogin, bttregister;
     private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
         medtname = findViewById(R.id.EdtName);
         medtpass = findViewById(R.id.EdtPass);
         bttlogin = findViewById(R.id.BttLogin);
-        bttresigter = findViewById(R.id.BttResig);
+        bttregister = findViewById(R.id.BttRegister);
         mtwResult = findViewById(R.id.TwResult);
 
         dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         // Create the table if it doesn't exist
-        String sql = "CREATE TABLE IF NOT EXISTS Learningenglishapp (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)";
+        String sql = "CREATE TABLE IF NOT EXISTS Learningenglishapp (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, role TEXT)";
         db.execSQL(sql);
-        // khai báo các button text view và button
 
         bttlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,42 +51,36 @@ public class Login extends AppCompatActivity {
                 // Move cursor to first row
                 boolean result = cursor.moveToFirst();
 
-                // Close cursor
-                cursor.close();
-
-                String[] projection2 = { "_roleuser" };
-                String selection2 = "username = ?";
-                String[] selectionArgs2 = { username, password  };
-                Cursor cursor2 = db.query("Learningenglishapp", projection2, selection2, selectionArgs2, null, null, null);
-
-
-
-                // Retrieve value of _roleuser column for currently logged-in user
-                int columnIndex = cursor2.getColumnIndex("_roleuser");
-                if (columnIndex < 0) {
-                    // Column not found, handle error
-                    return;
+                // Retrieve value of role column for currently logged-in user
+                String roleUser = "";
+                if (result) {
+                    int columnIndex = cursor.getColumnIndex("role");
+                    if (columnIndex >= 0) {
+                        roleUser = cursor.getString(columnIndex);
+                    }
                 }
-                String roleUser = cursor2.getString(columnIndex);
 
-                // If username and password match, move to User activity
-                if (result && roleUser=="User") {
+                // Close cursor and database connection
+                cursor.close();
+                db.close();
+
+                // If username and password match, move to User or Admin activity
+                if (result && roleUser.equals("User")) {
                     Intent intent = new Intent(Login.this, UserMain.class);
                     startActivity(intent);
-                } else if (result && roleUser == "Admin") {
-                    Intent intent = new Intent(Login.this, admin_main.class);
+                } else if (result && roleUser.equals("Admin")) {
+                    Intent intent = new Intent(Login.this, AdminMain.class);
                     startActivity(intent);
                 } else {
                     // Username and password do not match, display error message
                     mtwResult.setText("Incorrect username or password");
                 }
-
-                cursor.close();
-                db.close();
             }
         });
-        bttresigter.setOnClickListener(view -> {
-            startActivity(new Intent(Login.this, resigster.class));
+
+        bttregister.setOnClickListener(view -> {
+            startActivity(new Intent(Login.this, Register.class));
         });
     }
 }
+
