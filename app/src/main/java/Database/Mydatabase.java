@@ -1,4 +1,4 @@
-package Database;
+package com.example.learningenglishapp;
 
 import static Database.DBHelper.COT_BLOGWRITING;
 import static Database.DBHelper.COT_HEADLINE;
