@@ -1,4 +1,4 @@
-package Database;
+package com.example.learningenglishapp;
 
 public class User {
     private long _IDUser;
