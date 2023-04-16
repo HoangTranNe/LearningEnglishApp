@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,75 +16,66 @@ import Database.DBHelper;
 import edu.huflit.learning_english.R;
 
 public class login extends AppCompatActivity {
+    private TextView mtwResult;
+    private EditText medtname;
+    private EditText medtpass;
 
-    TextView mtwResult;
-    EditText medtname, medtpass;
-    Button bttlogin, bttresigter;
+    private Button bttLogin, bttRegister;
+
     private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        medtname = (EditText) findViewById(R.id.EdtName);
-        medtpass =(EditText) findViewById(R.id.EdtPass);
-        bttlogin = (Button) findViewById(R.id.BttLogin);
-        bttresigter = (Button) findViewById(R.id.BttResig);
-        mtwResult = (TextView) findViewById(R.id.TwResult);
+
+        medtname = findViewById(R.id.EdtName);
+        medtpass = findViewById(R.id.EdtPass);
+        bttLogin = findViewById(R.id.BttLogin);
+        bttRegister = findViewById(R.id.BttRegister);
+        mtwResult = findViewById(R.id.TwResult);
 
         dbHelper = new DBHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // Create the table if it doesn't exist
-        String sql = "CREATE TABLE IF NOT EXISTS Learningenglishapp (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)";
-        db.execSQL(sql);
-        // khai báo các button text view và button
+        bttLogin.setOnClickListener(v -> loginUser());
+        bttRegister.setOnClickListener(v -> startActivity(new Intent(login.this, register.class)));
 
-        bttlogin.setOnClickListener(v -> {
-            String username = medtname.getText().toString();
-            String password = medtpass.getText().toString();
-
-            // Check if username and password match a record in the database
-            String[] projection = { "id" };
-            String selection = "username = ? AND password = ?";
-            String[] selectionArgs = { username, password };
-            Cursor cursor = db.query("Learningenglishapp", projection, selection, selectionArgs, null, null, null);
-
-            // Move cursor to first row
-            boolean result = cursor.moveToFirst();
-
-            // Close cursor
-            cursor.close();
-
-            String[] projection2 = { "_roleuser" };
-            String selection2 = "username = ?";
-            String[] selectionArgs2 = { username, password  };
-            Cursor cursor2 = db.query("Learningenglishapp", projection2, selection2, selectionArgs2, null, null, null);
-
-            // Retrieve value of _roleuser column for currently logged-in user
-            int columnIndex = cursor2.getColumnIndex("_roleuser");
-            if (columnIndex < 0) {
-                // Column not found, handle error
-                return;
-            }
-            String roleUser = cursor2.getString(columnIndex);
-
-            // If username and password match, move to User activity
-            if (result && Objects.equals(roleUser, "User")) {
-                Intent intent = new Intent(login.this, user.class);
-                startActivity(intent);
-            } else if (result && Objects.equals(roleUser, "Admin")) {
-                Intent intent = new Intent(login.this,admin.class);
-                startActivity(intent);
-
-            } else {
-                // Username and password do not match, display error message
-                mtwResult.setText("Incorrect username or password");
-            }
-            cursor.close();
-            db.close();
-        });
-        bttresigter.setOnClickListener(view -> {
-            startActivity(new Intent(login.this, register.class));
-        });
     }
+
+    private void loginUser(){
+        onLoginButtonClick();
+    }
+    public void onLoginButtonClick(){
+        String username = medtname.getText().toString();
+        String password = medtpass.getText().toString();
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = findUser(db, username, password);
+
+        if (cursor.moveToFirst()) {
+            String roleUser = getRoleUser(cursor);
+
+            if (Objects.equals(roleUser, "User")) {
+                startActivity(new Intent(login.this, user.class));
+            } else if (Objects.equals(roleUser, "Admin")) {
+                startActivity(new Intent(login.this, admin.class));
+            }
+        }
+        else {
+            mtwResult.setText("Incorrect username or password");
+        }
+    }
+    private Cursor findUser(SQLiteDatabase db, String username, String password) {
+        String[] projection = {"_role_user"};
+        String selection = "username = ? AND password = ?";
+        String[] selectionArgs = {username, password};
+
+        return db.query("Learningenglishapp", projection, selection, selectionArgs, null, null, null);
+    }
+
+
+    private String getRoleUser(Cursor cursor) {
+        int columnIndex = cursor.getColumnIndex("_role_user");
+        return (columnIndex >= 0) ? cursor.getString(columnIndex) : null;
+    }
+
 }

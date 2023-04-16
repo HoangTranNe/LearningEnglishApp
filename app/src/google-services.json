@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "191421969419",
+    "project_id": "learningenglishapp-4c825",
+    "storage_bucket": "learningenglishapp-4c825.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191421969419:android:bdc6bcc13d3f982107c30e",
+        "android_client_info": {
+          "package_name": "edu.huflit.learning_english"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191421969419-rg163me0tfank9rbvgtkelf4k2ap8353.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxCDlbiUkPZOGyIgTL7G7WvdSHQGITdVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191421969419-rg163me0tfank9rbvgtkelf4k2ap8353.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

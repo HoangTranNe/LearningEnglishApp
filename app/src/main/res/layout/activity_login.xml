@@ -20,7 +20,8 @@
         android:layout_marginTop="63dp"
         android:layout_marginEnd="175dp"
         android:layout_marginBottom="577dp"
-        app:srcCompat="@drawable/user" />
+        app:srcCompat="@drawable/user"
+        android:contentDescription="ICON" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -117,7 +118,7 @@
             android:textSize="16dp" />
 
         <Button
-            android:id="@+id/BttResig"
+            android:id="@+id/BttRegister"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
