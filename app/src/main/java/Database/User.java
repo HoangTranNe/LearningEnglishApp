@@ -1,5 +1,7 @@
 package Database;
 
+import android.database.sqlite.SQLiteOpenHelper;
+
 public class User {
     private long _IDUser;
     private String _username, _password,_gender, _roleuser,_level;
@@ -16,6 +18,7 @@ public class User {
         this._roleuser = _roleuser;
         this._age = _age;
     }
+
 
     public long get_IDUser() {
         return _IDUser;
@@ -73,3 +76,4 @@ public class User {
         this._age = _age;
     }
 }
+

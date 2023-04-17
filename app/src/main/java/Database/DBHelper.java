@@ -1,6 +1,8 @@
 package Database;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -10,7 +12,7 @@ public class DBHelper extends SQLiteOpenHelper {
     // bảng user
     public static final String TEN_BANG_User = "User";
 
-    public static final String COT_IDUSER = "_IDUser";
+    public static final Long COT_ID_USER = ;
     public static final String COT_USERNAME = "_username";
     public static final String COT_PASSWORD= "_password";
     public static final String COT_GENDER= "_gender";
@@ -18,9 +20,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COT_LEVEL = "_level";
     public static final String COT_AGE = "_age";
 
+    private static final String DROP_TABLE_USER = "DROP TABLE IF EXISTS " + TEN_BANG_User;
     private static final String TAO_BANG_User = ""
             + "create table " + TEN_BANG_User + " ( "
-            + COT_IDUSER + " integer primary key autoincrement ,"
+            + COT_ID_USER + " integer primary key autoincrement ,"
             + COT_USERNAME + " text not null, "
             + COT_PASSWORD + " text not null, "
             + COT_GENDER + "text not null, "
@@ -68,7 +71,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String TAO_BANG_Result = ""
             + "create table " + TEN_BANG_Result + " ( "
-            + COT_IDUSER + " integer primary key autoincrement ,"
+            + COT_ID_USER + " integer primary key autoincrement ,"
             + COT_IDTEST + " integer primary key autoincrement ,"
             + COT_TRIES + "integer not null, "
             + COT_SCORE + "integer not null );";
@@ -87,6 +90,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context) {
         super(context, TEN_DATABASE, null, 1);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TAO_BANG_User);
@@ -98,7 +102,37 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL(DROP_TABLE_USER);
+        onCreate(db);
+    }
+    public void addUser(User user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COT_USERNAME, user.get_username());
+        values.put(COT_PASSWORD, user.get_password());
+        db.insert(TEN_BANG_User, null, values);
+        db.close();
+    }
+    public User getUser(String name, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COT_ID_USER, COT_USERNAME, COT_PASSWORD};
+        String selection = COT_USERNAME + "=? and " + COT_PASSWORD + "=?";
+        String[] selectionArgs = {name, password};
+        Cursor cursor = db.query(TEN_BANG_User, columns, selection, selectionArgs, null, null, null);
+        if (cursor.moveToFirst()) {
+            /*int id = cursor.getInt(cursor.getColumnIndex(COT_ID_USER));*/
+            if(cursor.getColumnIndex(COT_ID_USER) >=0){
+                String value = cursor.getString(cursor.getColumnIndex(COT_ID_USER), COT_ID_USER == 1);
+                COT_ID_USER = 12;
+            }
+            String username = cursor.getString(cursor.getColumnIndex(COT_USERNAME));
+            String pass = cursor.getString(cursor.getColumnIndex(COT_PASSWORD));
+            User user = new User(id, username, pass);
+            cursor.close();
+            return user;
+        }
+        cursor.close();
+        return null;
     }
 }

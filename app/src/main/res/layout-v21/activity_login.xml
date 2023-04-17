@@ -113,9 +113,9 @@
             android:background="@drawable/border"
             android:backgroundTint="@color/medium_slate_blue"
             android:gravity="center"
-            android:text="Đăng Nhập"
-            android:onClick="loginUser"
-            android:textSize="16dp" />
+            android:text="@string/ng_nh_p"
+            android:onClick="setBttLogin"
+            android:textSize="16sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/BttRegister"
@@ -128,10 +128,9 @@
             android:background="@drawable/border"
             android:backgroundTint="@color/medium_slate_blue"
             android:gravity="center"
-            android:text="Đăng Kí"
-            android:onClick="@{() -> viewModel.setBttRegister()"
-            android:textSize="16dp"
-            tools:ignore="UsingOnClickInXml" />
+            android:text="@string/ng_k"
+            android:onClick="setBttRegister"
+            android:textSize="16sp" />
     </RelativeLayout>
 
     <TextView
