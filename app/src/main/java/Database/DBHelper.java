@@ -12,7 +12,9 @@ public class DBHelper extends SQLiteOpenHelper {
     // bảng user
     public static final String TEN_BANG_User = "User";
 
-    public static final Long COT_ID_USER = ;
+    /*public static long COT_ID_USER = null; t note ở đây là có thể xem xét trường hợp này*/
+
+    public static final String COT_ID_USER = "_iduser";
     public static final String COT_USERNAME = "_username";
     public static final String COT_PASSWORD= "_password";
     public static final String COT_GENDER= "_gender";
@@ -114,25 +116,23 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert(TEN_BANG_User, null, values);
         db.close();
     }
-    public User getUser(String name, String password) {
+
+    // còn cái này là lấy thông tin user nó vẫn bị lỗi chưa biết cách sửa
+    /*public User getUser(String name, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns = {COT_ID_USER, COT_USERNAME, COT_PASSWORD};
+        String[] columns = {String.valueOf(COT_ID_USER), COT_USERNAME, COT_PASSWORD};
         String selection = COT_USERNAME + "=? and " + COT_PASSWORD + "=?";
         String[] selectionArgs = {name, password};
         Cursor cursor = db.query(TEN_BANG_User, columns, selection, selectionArgs, null, null, null);
         if (cursor.moveToFirst()) {
-            /*int id = cursor.getInt(cursor.getColumnIndex(COT_ID_USER));*/
-            if(cursor.getColumnIndex(COT_ID_USER) >=0){
-                String value = cursor.getString(cursor.getColumnIndex(COT_ID_USER), COT_ID_USER == 1);
-                COT_ID_USER = 12;
-            }
-            String username = cursor.getString(cursor.getColumnIndex(COT_USERNAME));
+            int id = cursor.getInt(cursor.getColumnIndex(COT_ID_USER));
+            String username = cursor.getString(cursor.getColumnIndex(COT_USERNAME == "_username"));
             String pass = cursor.getString(cursor.getColumnIndex(COT_PASSWORD));
-            User user = new User(id, username, pass);
+            User user = new User(COT_ID_USER.longValue(), username, pass);
             cursor.close();
             return user;
         }
         cursor.close();
         return null;
-    }
+    }*/
 }
