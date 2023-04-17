@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
 
         bttlogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClickLogin(View v) {
                 String username = medtname.getText().toString();
                 String password = medtpass.getText().toString();
 
@@ -80,7 +80,7 @@ public class Login extends AppCompatActivity {
 
         bttregister.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClickResign(View v) {
             startActivity(new Intent(Login.this, Register.class));}
         });
     }
