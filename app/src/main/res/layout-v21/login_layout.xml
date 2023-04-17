@@ -108,7 +108,7 @@
                 android:textSize="15dp"
                 android:backgroundTint="@color/medium_slate_blue"
                 android:text="Đăng Nhập" 
-                android:onClick="onClick"/>
+                android:onClick="onClickLogin"/>
 
             <Space
                 android:layout_width="10dp"
@@ -123,7 +123,7 @@
                 android:textSize="15dp"
                 android:backgroundTint="@color/medium_slate_blue"
                 android:text="Đăng Kí" 
-                android:onClick="onClick"/>
+                android:onClick="onClickResign"/>
 
         </LinearLayout>
     </LinearLayout>
