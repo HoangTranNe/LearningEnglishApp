@@ -78,8 +78,10 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        bttregister.setOnClickListener(view -> {
-            startActivity(new Intent(Login.this, Register.class));
+        bttregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            startActivity(new Intent(Login.this, Register.class));}
         });
     }
 }
