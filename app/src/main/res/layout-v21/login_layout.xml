@@ -107,7 +107,8 @@
                 android:gravity="center"
                 android:textSize="15dp"
                 android:backgroundTint="@color/medium_slate_blue"
-                android:text="Đăng Nhập" />
+                android:text="Đăng Nhập" 
+                android:onClick="onClick"/>
 
             <Space
                 android:layout_width="10dp"
@@ -121,7 +122,8 @@
                 android:gravity="center"
                 android:textSize="15dp"
                 android:backgroundTint="@color/medium_slate_blue"
-                android:text="Đăng Kí" />
+                android:text="Đăng Kí" 
+                android:onClick="onClick"/>
 
         </LinearLayout>
     </LinearLayout>
