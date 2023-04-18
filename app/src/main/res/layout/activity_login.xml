@@ -114,7 +114,7 @@
             android:backgroundTint="@color/medium_slate_blue"
             android:gravity="center"
             android:text="Đăng Nhập"
-            android:onClick="bttLogin"
+            android:onClick="onClickLogin"
             android:textSize="16dp" />
 
         <com.google.android.material.button.MaterialButton
@@ -129,7 +129,7 @@
             android:backgroundTint="@color/medium_slate_blue"
             android:gravity="center"
             android:text="Đăng Kí"
-            android:onClick="bttRegister"
+            android:onClick="onClickResign"
             android:textSize="16dp" />
     </RelativeLayout>
 
