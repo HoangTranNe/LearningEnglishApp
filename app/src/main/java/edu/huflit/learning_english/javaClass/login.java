@@ -45,64 +45,82 @@ public class login extends AppCompatActivity {
         // Create the table if it doesn't exist
         String sql = "CREATE TABLE IF NOT EXISTS Learningenglishapp (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)";
         db.execSQL(sql);
-        
-        medtname = (EditText) findViewById(R.id.EdtName);
-        medtpass = (EditText) findViewById(R.id.EdtPass);
-        bttlogin = (Button) findViewById(R.id.BttLogin);
-        bttregister = (Button) findViewById(R.id.BttRegister);
-        mtwResult = (TextView) findViewById(R.id.TwResult);
-        
-         bttlogin.setOnClickListener(new View.OnClickListener() {
+
+        edtName = findViewById(R.id.EdtName);
+        edtPass = findViewById(R.id.EdtPass);
+        bttLogin = (Button) findViewById(R.id.BttLogin);
+        bttRegister = (Button) findViewById(R.id.BttRegister);
+        mtwResult = findViewById(R.id.TwResult);
+
+        bttLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClickLogin(View v) {
+            public void onClick(View v) {
+                onCLickLogin();
+            }
+            public void onCLickLogin(){
                 String username = edtName.getText().toString();
-            String password = edtPass.getText().toString();
+                String password = edtPass.getText().toString();
 
-            // Check if username and password match a record in the database
-            String[] projection = {"id"};
-            String selection = "username = ? AND password = ?";
-            String[] selectionArgs = {username, password};
-            Cursor cursor = db.query("Learningenglishapp", projection, selection, selectionArgs, null, null, null);
+                // Check if username and password match a record in the database
+                String[] projection = {"id"};
+                String selection = "username = ? AND password = ?";
+                String[] selectionArgs = {username, password};
+                Cursor cursor = db.query("Learningenglishapp", projection, selection, selectionArgs, null, null, null);
 
-            // Move cursor to first row
-            boolean result = cursor.moveToFirst();
+                // Move cursor to first row
+                boolean result = cursor.moveToFirst();
 
-            // Close cursor
-            cursor.close();
+                // Close cursor
+                cursor.close();
 
-            String[] projection2 = {"_roleuser"};
-            String selection2 = "username = ?";
-            String[] selectionArgs2 = {username, password};
-            Cursor cursor2 = db.query("Learningenglishapp", projection2, selection2, selectionArgs2, null, null, null);
+                String[] projection2 = {"role_user"}; //t đổi lại thành
+                String selection2 = "username = ?";
+                String[] selectionArgs2 = {username, password};
+                Cursor cursor2 = db.query("Learningenglishapp", projection2, selection2, selectionArgs2, null, null, null);
 
-            // Retrieve value of _roleuser column for currently logged-in user
-            int columnIndex = cursor2.getColumnIndex("_roleuser");
-            if (columnIndex < 0) {
-                // Column not found, handle error
-                return;
+                // Retrieve value of _roleuser column for currently logged-in user
+                int columnIndex = cursor2.getColumnIndex("_roleuser");
+                if (columnIndex < 0) {
+                    // Column not found, handle error
+                    return;
+                }
+                String roleUser = cursor2.getString(columnIndex);
+
+                // If username and password match, move to User activity
+                if (result && Objects.equals(roleUser, "User")) {
+                    Intent intent1 = new Intent(login.this, user.class);
+                    startActivity(intent1);
+                } else if (result && Objects.equals(roleUser, "Admin")) {
+                    Intent intent2 = new Intent(login.this, admin.class);
+                    startActivity(intent2);
+
+                } else {
+                    // Username and password do not match, display error message
+                    mtwResult.setText("Incorrect username or password");
+                }
+                cursor.close();
+                cursor2.close();//t có khai báo thêm cho nó bớt báo vàng
+                db.close();
             }
-            String roleUser = cursor2.getString(columnIndex);
-
-            // If username and password match, move to User activity
-            if (result && Objects.equals(roleUser, "User")) {
-                Intent intent = new Intent(login.this, user.class);
-                startActivity(intent);
-            } else if (result && Objects.equals(roleUser, "Admin")) {
-                Intent intent = new Intent(login.this, admin.class);
-                startActivity(intent);
-
-            } else {
-                // Username and password do not match, display error message
-                mtwResult.setText("Incorrect username or password");
-            }
-            cursor.close();
-            db.close();
         });
-             
-        bttregister.setOnClickListener(new View.OnClickListener() {
+
+//        bttRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onClickRegister();
+//            }
+//            public void onClickRegister() {
+//                Intent intent = new Intent(login.this, register.class);
+//                startActivity(intent);
+//            }
+//        });
+        aci binding = DataBindingUtil.setContentView(this, R.layout.my_layout);
+        binding.setViewModel(viewModel);
+        binding.bttRegister.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClickResign(View v) {
-            startActivity(new Intent(Login.this, Register.class));}
+            public void onClick(View v) {
+                viewModel.registerUser();
+            }
         });
     }
 }

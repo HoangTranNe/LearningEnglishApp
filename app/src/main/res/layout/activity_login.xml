@@ -24,44 +24,29 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="550dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="180dp"
+        android:layout_marginBottom="1dp"
         android:orientation="vertical">
 
+
         <TextView
-            android:id="@+id/TwResult"
-            android:layout_width="275dp"
+            android:id="@+id/TwLogin"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="350dp"
-            android:layout_marginEnd="66dp"
-            android:layout_marginBottom="38dp"
-            android:text=""
-            android:textColor="@color/black" />
-
-
-
-        <EditText
-            android:id="@+id/EdtName"
-            android:layout_width="255dp"
-            android:layout_height="50dp"
+            android:layout_above="@+id/EdtName"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="70dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="-310dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="-58dp"
             android:background="@drawable/border"
-            android:backgroundTint="@color/lavender_blue"
-            android:ems="10"
+            android:backgroundTint="@color/medium_slate_blue"
             android:gravity="center"
-            android:hint="NHẬP TÊN ĐĂNG NHẬP"
-            android:inputType="textPersonName"
-            android:text=""
+            android:text="Tên Đăng nhập"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="16dp" />
 
         <TextView
@@ -72,7 +57,7 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="center"
             android:layout_marginStart="130dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="150dp"
             android:layout_marginEnd="130dp"
             android:background="@drawable/border"
             android:backgroundTint="@color/medium_slate_blue"
@@ -87,9 +72,9 @@
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginEnd="70dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="210dp"
+            android:layout_marginEnd="80dp"
             android:autofillHints=""
             android:background="@drawable/border"
             android:backgroundTint="@color/lavender_blue"
@@ -102,52 +87,90 @@
             android:textSize="16dp" />
 
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/BttLogin"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="270dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="280dp"
+            android:layout_marginEnd="90dp"
             android:background="@drawable/border"
             android:backgroundTint="@color/medium_slate_blue"
             android:gravity="center"
-            android:text="Đăng Nhập"
             android:onClick="onClickLogin"
+            android:text="Đăng Nhập"
             android:textSize="16dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/BttRegister"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="270dp"
-            android:layout_marginEnd="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="194dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginEnd="67dp"
+            android:layout_marginBottom="152dp"
             android:background="@drawable/border"
             android:backgroundTint="@color/medium_slate_blue"
             android:gravity="center"
+            android:onClick="onClickRegister"
             android:text="Đăng Kí"
-            android:onClick="onClickResign"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginEnd="238dp"
+            android:layout_marginBottom="159dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="Nếu Bạn Chưa Có Tải Khoản Hãy Ấn: " />
+
+        <EditText
+            android:id="@+id/EdtName"
+            android:layout_width="255dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="-168dp"
+            android:background="@drawable/border"
+            android:backgroundTint="@color/lavender_blue"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="NHẬP TÊN ĐĂNG NHẬP"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="16dp" />
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/TwLogin"
-        android:layout_width="wrap_content"
+        android:id="@+id/TwResult"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="130dp"
-        android:background="@drawable/border"
-        android:backgroundTint="@color/medium_slate_blue"
-        android:text="Tên Đăng nhập"
-        android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="607dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="105dp"
+        android:text=""
+        android:textColor="@color/black" />
+
 
 </RelativeLayout>
