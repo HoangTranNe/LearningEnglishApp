@@ -37,11 +37,6 @@ public class login extends AppCompatActivity {
     TextView mtwResult;
     DBHelper dbHelper;
 
-
-
-    //khúc này định truy vấn từ user mà hơi lỏ
-    /*User user = new User();*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,15 +45,17 @@ public class login extends AppCompatActivity {
         // Create the table if it doesn't exist
         String sql = "CREATE TABLE IF NOT EXISTS Learningenglishapp (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)";
         db.execSQL(sql);
-
-
-    }
-
-    public void bttLogin(View view) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        bttLogin.setOnClickListener(v ->
-        {
-            String username = edtName.getText().toString();
+        
+        medtname = (EditText) findViewById(R.id.EdtName);
+        medtpass = (EditText) findViewById(R.id.EdtPass);
+        bttlogin = (Button) findViewById(R.id.BttLogin);
+        bttregister = (Button) findViewById(R.id.BttRegister);
+        mtwResult = (TextView) findViewById(R.id.TwResult);
+        
+         bttlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClickLogin(View v) {
+                String username = edtName.getText().toString();
             String password = edtPass.getText().toString();
 
             // Check if username and password match a record in the database
@@ -101,14 +98,11 @@ public class login extends AppCompatActivity {
             cursor.close();
             db.close();
         });
-    }
-    public void bttRegister(View view){
-        bttRegister.setOnClickListener(v ->
-        {
-            startActivity(new Intent(login.this, register.class));
+             
+        bttregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClickResign(View v) {
+            startActivity(new Intent(Login.this, Register.class));}
         });
     }
-
-
-
 }
