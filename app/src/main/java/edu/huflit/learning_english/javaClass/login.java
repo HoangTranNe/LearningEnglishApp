@@ -104,10 +104,10 @@ public class login extends AppCompatActivity {
                 // If username and password match, move to User activity
                 if (result && Objects.equals(roleUser, "User")) {
                     Intent intent1 = new Intent(login.this, user.class);
-                    startActivity(intent1);
+                    login.this.startActivity(intent1);
                 } else if (result && Objects.equals(roleUser, "Admin")) {
                     Intent intent2 = new Intent(login.this, admin.class);
-                    startActivity(intent2);
+                    login.this.startActivity(intent2);
 
                 } else {
                     // Username and password do not match, display error message
