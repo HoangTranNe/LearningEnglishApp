@@ -52,12 +52,27 @@ public class login extends AppCompatActivity {
         bttRegister = (Button) findViewById(R.id.BttRegister);
         mtwResult = findViewById(R.id.TwResult);
 
-        bttLogin.setOnClickListener(new View.OnClickListener() {
+        bttLogin.setOnClickListener(view -> onCLickLogin());
+//        bttRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onClickRegister();
+//            }
+//            public void onClickRegister() {
+//                Intent intent = new Intent(login.this, register.class);
+//                startActivity(intent);
+//            }
+//        });
+        aci binding = DataBindingUtil.setContentView(this, R.layout.my_layout);
+        binding.setViewModel(viewModel);
+        binding.bttRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onCLickLogin();
+                viewModel.registerUser();
             }
-            public void onCLickLogin(){
+        });
+    }
+    public void onCLickLogin(){
                 String username = edtName.getText().toString();
                 String password = edtPass.getText().toString();
 
@@ -102,25 +117,4 @@ public class login extends AppCompatActivity {
                 cursor2.close();//t có khai báo thêm cho nó bớt báo vàng
                 db.close();
             }
-        });
-
-//        bttRegister.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onClickRegister();
-//            }
-//            public void onClickRegister() {
-//                Intent intent = new Intent(login.this, register.class);
-//                startActivity(intent);
-//            }
-//        });
-        aci binding = DataBindingUtil.setContentView(this, R.layout.my_layout);
-        binding.setViewModel(viewModel);
-        binding.bttRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewModel.registerUser();
-            }
-        });
-    }
 }
