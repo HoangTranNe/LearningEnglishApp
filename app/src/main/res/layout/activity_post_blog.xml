@@ -46,7 +46,7 @@
             android:layout_height="60dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/createBlog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -60,7 +60,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/SearchTerm"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -69,7 +69,7 @@
             android:hint="Từ Khóa"/>
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/SearchBlog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -95,7 +95,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/radioDaily"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Daily Vocabulary"
@@ -108,7 +108,7 @@
             </Space>
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/radioGeneral"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="General"
@@ -127,7 +127,7 @@
             android:layout_gravity="center">
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioCommon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Common Mistake"
@@ -139,7 +139,7 @@
             </Space>
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/radioBug"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Bug"
